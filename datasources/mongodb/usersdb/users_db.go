@@ -16,25 +16,30 @@ const (
 
 var (
 	//Client accessible
-	Client *mongo.Client
+	client *mongo.Client
 )
 
 func init() {
 	var err error
-	Client, err = mongo.NewClient(options.Client().ApplyURI(connectionString))
+	client, err = mongo.NewClient(options.Client().ApplyURI(connectionString))
 	if err != nil {
 		log.Fatal(err)
 		panic(err)
 	}
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 
-	err = Client.Connect(ctx)
+	err = client.Connect(ctx)
 	if err != nil {
 		log.Fatal("error connecting to the database : ", err)
 	}
-	err = Client.Ping(ctx, readpref.Primary())
+	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		log.Fatal("connection could not be established")
 	}
 	log.Println("connection established ...")
+}
+
+//GetMongoInstance ...
+func GetMongoInstance() *mongo.Client {
+	return client
 }

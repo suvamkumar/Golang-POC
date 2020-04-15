@@ -16,7 +16,7 @@ var (
 )
 
 func init() {
-	collection = users_db.Client.Database("usersdb").Collection("users")
+	collection = users_db.GetMongoInstance().Database("usersdb").Collection("users")
 }
 
 //Insert user ingto the database
