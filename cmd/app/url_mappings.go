@@ -1,6 +1,6 @@
 package app
 
-import "crud_with_gin_gonic/controllers/user"
+import "crud_with_gin_gonic/internal/users/controllers/user"
 
 func mapUrls() {
 	router.POST("/users", user.Create)

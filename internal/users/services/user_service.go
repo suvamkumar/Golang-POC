@@ -1,9 +1,9 @@
 package services
 
 import (
-	"crud_with_gin_gonic/domain/users"
-	"crud_with_gin_gonic/utils/date_utils"
-	"crud_with_gin_gonic/utils/errors"
+	"crud_with_gin_gonic/internal/users/domain/users"
+	"crud_with_gin_gonic/internal/users/utils/date_utils"
+	"crud_with_gin_gonic/internal/users/utils/errors"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

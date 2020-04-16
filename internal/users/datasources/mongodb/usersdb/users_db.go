@@ -3,6 +3,7 @@ package users_db
 import (
 	"context"
 	"log"
+	"sync"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -15,13 +16,12 @@ const (
 )
 
 var (
-	//Client accessible
+	dial   sync.Once
 	client *mongo.Client
 )
 
-func init() {
-	var err error
-	client, err = mongo.NewClient(options.Client().ApplyURI(connectionString))
+func connect() *mongo.Client {
+	client, err := mongo.NewClient(options.Client().ApplyURI(connectionString))
 	if err != nil {
 		log.Fatal(err)
 		panic(err)
@@ -37,9 +37,13 @@ func init() {
 		log.Fatal("connection could not be established")
 	}
 	log.Println("connection established ...")
+	return client
 }
 
 //GetMongoInstance ...
 func GetMongoInstance() *mongo.Client {
+	dial.Do(func() {
+		client = connect()
+	})
 	return client
 }

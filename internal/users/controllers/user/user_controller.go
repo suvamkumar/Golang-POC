@@ -1,9 +1,9 @@
 package user
 
 import (
-	"crud_with_gin_gonic/domain/users"
-	"crud_with_gin_gonic/services"
-	"crud_with_gin_gonic/utils/errors"
+	"crud_with_gin_gonic/internal/users/domain/users"
+	"crud_with_gin_gonic/internal/users/services"
+	"crud_with_gin_gonic/internal/users/utils/errors"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
