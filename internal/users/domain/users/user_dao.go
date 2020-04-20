@@ -2,8 +2,8 @@ package users
 
 import (
 	"context"
-	users_db "crud_with_gin_gonic/internal/users/datasources/mongodb/usersdb"
-	"crud_with_gin_gonic/internal/users/utils/errors"
+	users_db "crud_with_gin_gonic/internal/datasources/mongodb/usersdb"
+	"crud_with_gin_gonic/internal/utils/errors"
 	"fmt"
 	"time"
 
