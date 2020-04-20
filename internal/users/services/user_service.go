@@ -1,7 +1,7 @@
 package services
 
 import (
-	"crud_with_gin_gonic/internal/users/domain/users"
+	users "crud_with_gin_gonic/internal/users/domain"
 	"crud_with_gin_gonic/internal/utils/date_utils"
 	"crud_with_gin_gonic/internal/utils/errors"
 
